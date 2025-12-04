@@ -1,0 +1,20 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+
+ENTITY Mux_2to1_5b IS
+    GENERIC (DATA_SIZE : INTEGER := 4);--tamanho dos vetores
+    PORT (
+        CONTROL : IN STD_LOGIC; --sinal de controle do mux
+        A : IN STD_LOGIC_VECTOR (0 TO DATA_SIZE - 1); --A
+        B : IN STD_LOGIC_VECTOR (0 TO DATA_SIZE - 1); --B
+        X : OUT STD_LOGIC_VECTOR (0 TO DATA_SIZE - 1)); --vai receber A ou B
+END Mux_2to1_5b;
+
+ARCHITECTURE MUX OF Mux_2to1_5b IS
+BEGIN
+
+
+    X <= A WHEN (CONTROL = '0') ELSE B;
+END MUX;
